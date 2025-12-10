@@ -10,7 +10,7 @@ return {
 	assets: new Set([]),
 	mimeTypes: {},
 	_: {
-		client: {start:"_app/immutable/entry/start.C0EPuQkP.js",app:"_app/immutable/entry/app.BFPeszBj.js",imports:["_app/immutable/entry/start.C0EPuQkP.js","_app/immutable/chunks/B_qlRIG4.js","_app/immutable/chunks/DvnoTbBl.js","_app/immutable/chunks/DLpqGOCk.js","_app/immutable/entry/app.BFPeszBj.js","_app/immutable/chunks/DvnoTbBl.js","_app/immutable/chunks/Cz8oZ3IZ.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.VZ1GIbfc.js",app:"_app/immutable/entry/app.C3bjKoJB.js",imports:["_app/immutable/entry/start.VZ1GIbfc.js","_app/immutable/chunks/bG-DSqWy.js","_app/immutable/chunks/DvnoTbBl.js","_app/immutable/chunks/DLpqGOCk.js","_app/immutable/entry/app.C3bjKoJB.js","_app/immutable/chunks/DvnoTbBl.js","_app/immutable/chunks/Cz8oZ3IZ.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
