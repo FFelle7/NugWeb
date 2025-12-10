@@ -1,6 +1,6 @@
 <script lang="ts">
   import { essentialCategories } from "$lib/data/essentials";
-  import type { EssentialApp } from "$lib/data/essentials";
+  import type { EssentialApp, EssentialCategory } from "$lib/data/essentials";
   import Card from "$lib/components/Card.svelte";
   import SearchBar from "$lib/components/SearchBar.svelte";
   import { searchQuery } from "$lib/stores/search";
@@ -11,14 +11,22 @@
     apps: EssentialApp[];
   };
 
-  let filteredCategories: CategoryWithApps[] = essentialCategories;
+  let selectedCategory: string | null = null;
 
   $: {
     const q = $searchQuery.toLowerCase();
-    if (!q) {
-      filteredCategories = essentialCategories;
-    } else {
-      filteredCategories = essentialCategories
+    let categoriesToShow = essentialCategories;
+
+    // Filter by selected category
+    if (selectedCategory) {
+      categoriesToShow = essentialCategories.filter(
+        (cat) => cat.name === selectedCategory
+      );
+    }
+
+    // Filter by search query
+    if (q) {
+      categoriesToShow = categoriesToShow
         .map((cat) => ({
           ...cat,
           apps: cat.apps.filter(
@@ -30,6 +38,14 @@
         }))
         .filter((cat) => cat.apps.length > 0);
     }
+
+    filteredCategories = categoriesToShow;
+  }
+
+  let filteredCategories: CategoryWithApps[] = essentialCategories;
+
+  function selectCategory(categoryName: string | null) {
+    selectedCategory = selectedCategory === categoryName ? null : categoryName;
   }
 </script>
 
@@ -50,6 +66,30 @@
   </div>
 
   <SearchBar />
+
+  <!-- Category Tabs -->
+  <div class="mb-6 flex flex-wrap gap-2">
+    <button
+      class="rounded-full px-4 py-2 text-sm font-semibold transition-all {selectedCategory ===
+      null
+        ? 'bg-purple-primary text-white shadow-glow'
+        : 'bg-purple-primary/15 text-purple-primary hover:bg-purple-primary/25'}"
+      on:click={() => selectCategory(null)}
+    >
+      All
+    </button>
+    {#each essentialCategories as category}
+      <button
+        class="rounded-full px-4 py-2 text-sm font-semibold transition-all {selectedCategory ===
+        category.name
+          ? 'bg-purple-primary text-white shadow-glow'
+          : 'bg-purple-primary/15 text-purple-primary hover:bg-purple-primary/25'}"
+        on:click={() => selectCategory(category.name)}
+      >
+        {category.name}
+      </button>
+    {/each}
+  </div>
 
   <div class="space-y-8">
     {#each filteredCategories as category}
