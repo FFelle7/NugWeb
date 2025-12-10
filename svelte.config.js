@@ -16,9 +16,13 @@ const config = {
     paths: {
       base: "/NugWeb",
     },
-    
+
     // Attempt to prerender all pages
-    prerender: { entries: ["*"] },
+    prerender: {
+      entries: ["*"],
+      handleHttpError: "warn",
+      handleMissingId: "warn",
+    },
 
     // Optional: configure alias if needed
     // alias: {

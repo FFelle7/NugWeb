@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NugWeb</title>
+  <script>
+    // GitHub Pages 404.html workaround for SPA routing
+    // When a route doesn't exist, GitHub Pages serves this 404.html
+    // We need to redirect to index.html and let SvelteKit handle the routing
+    const path = window.location.pathname;
+    const base = '/NugWeb';
+    
+    // If we're not already at index.html, redirect there
+    // SvelteKit will handle the routing client-side based on the original URL
+    if (!path.includes('index.html')) {
+      // Use replace to avoid adding to history
+      window.location.replace(base + '/index.html');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
+

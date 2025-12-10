@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { base } from "$app/paths";
   import { derived } from "svelte/store";
   import {
     Sparkles,
@@ -11,16 +12,16 @@
   } from "lucide-svelte";
 
   const navItems = [
-    { title: "AI Tools", href: "/ai-tools", icon: Sparkles },
-    { title: "Essential Apps", href: "/essentials", icon: Boxes },
-    { title: "Optimization", href: "/optimization", icon: Zap },
+    { title: "AI Tools", href: `${base}/ai-tools`, icon: Sparkles },
+    { title: "Essential Apps", href: `${base}/essentials`, icon: Boxes },
+    { title: "Optimization", href: `${base}/optimization`, icon: Zap },
     {
       title: "Quality of Life",
-      href: "/quality-of-life",
+      href: `${base}/quality-of-life`,
       icon: HeartHandshake,
     },
-    { title: "Visuals", href: "/visuals", icon: Palette },
-    { title: "Felles Projects", href: "/projects", icon: FolderKanban },
+    { title: "Visuals", href: `${base}/visuals`, icon: Palette },
+    { title: "Felles Projects", href: `${base}/projects`, icon: FolderKanban },
   ];
 
   export let open = true;
