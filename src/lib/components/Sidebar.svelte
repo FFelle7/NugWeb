@@ -1,6 +1,5 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { goto } from "$app/navigation";
   import { derived } from "svelte/store";
   import {
     Sparkles,
@@ -51,16 +50,14 @@
     {#each navItems as item}
       {#if $currentPath !== undefined}
         {@const active = isActive($currentPath, item.href)}
-        <button
+        <a
+          href={item.href}
           class={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-primary ${
             active
               ? "bg-purple-primary/10 text-ink border border-purple-primary/20 shadow-glow"
               : "text-ink/80 hover:bg-white hover:shadow-soft"
           }`}
-          on:click={() => {
-            onNavigate();
-            goto(item.href);
-          }}
+          on:click={onNavigate}
         >
           <svelte:component
             this={item.icon}
@@ -73,7 +70,7 @@
               class="h-2 w-2 rounded-full bg-purple-primary shadow-glow"
             />
           {/if}
-        </button>
+        </a>
       {/if}
     {/each}
   </nav>
