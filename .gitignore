@@ -1,0 +1,16 @@
+# SvelteKit build and generated files
+.svelte-kit/
+build/
+.vite/
+
+# Dependencies
+node_modules/
+
+# GitHub Pages cache (from gh-pages)
+node_modules/.cache/
+.cache/
+*.log
+
+# IDE files
+.vscode/
+.DS_Store

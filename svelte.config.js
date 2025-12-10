@@ -14,8 +14,8 @@ const config = {
 
     // Set base path for GitHub Pages
     paths: {
-      base: process.env.NODE_ENV === "production" ? "/NugWeb" : "",
-    },
+		base: process.env.NODE_ENV === "production" ? "/nugweb" : ""
+	  },
 
     // Attempt to prerender all pages
     prerender: { entries: ["*"] },
