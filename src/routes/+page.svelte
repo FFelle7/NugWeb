@@ -21,11 +21,6 @@
       href: `${base}/optimization`,
     },
     {
-      title: "Felles Projects",
-      description: "Shared project picks for collaboration and delivery.",
-      href: `${base}/projects`,
-    },
-    {
       title: "Quality of Life",
       description: "Handy helpers that make everyday work smoother.",
       href: `${base}/quality-of-life`,
@@ -34,6 +29,11 @@
       title: "Visuals",
       description: "Design, illustration, and visual polish resources.",
       href: `${base}/visuals`,
+    },
+    {
+      title: "Felles Projects",
+      description: "Shared project picks for collaboration and delivery.",
+      href: `${base}/projects`,
     },
   ];
 </script>

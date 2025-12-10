@@ -1,8 +1,11 @@
 <script lang="ts">
   import type { QualityApp } from "$lib/data/qualityOfLife";
   import type { EssentialApp } from "$lib/data/essentials";
+  import type { AiTool } from "$lib/data/aiTools";
+  import type { VisualTool } from "$lib/data/visuals";
+  import type { ProjectPick } from "$lib/data/projects";
 
-  type App = QualityApp | EssentialApp;
+  type App = QualityApp | EssentialApp | AiTool | VisualTool | ProjectPick;
   export let app: App;
 
   function handleImageError(event: Event) {
@@ -11,11 +14,24 @@
       img.style.display = "none";
     }
   }
+
+  function handleClick(event: MouseEvent) {
+    // If this card represents a downloadable file
+    if (app.file) {
+      event.preventDefault(); // stop normal <a> navigation
+
+      const a = document.createElement("a");
+      a.href = app.file;
+      a.download = app.file.split("/").pop(); // filename
+      a.click();
+    }
+  }
 </script>
 
 <a
   class="surface card-hover block rounded-xl border border-black/5 p-5 shadow-soft hover:shadow-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-primary"
-  href={app.link}
+  href={app.file ? app.file : app.link}
+  on:click={handleClick}
   target="_blank"
   rel="noreferrer"
 >
@@ -34,9 +50,15 @@
         <p class="mt-2 text-sm text-ink/70">{app.description}</p>
       </div>
     </div>
-    <span aria-hidden="true" class="text-2xl text-purple-primary flex-shrink-0"
-      >↗</span
-    >
+
+    <!-- Icon changes depending on type -->
+    <span aria-hidden="true" class="text-2xl text-purple-primary flex-shrink-0">
+      {#if app.file}
+        ⬇️
+      {:else}
+        ↗
+      {/if}
+    </span>
   </div>
 
   {#if app.tags?.length}

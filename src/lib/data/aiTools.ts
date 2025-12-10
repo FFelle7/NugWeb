@@ -2,63 +2,79 @@ export type AiTool = {
 	title: string;
 	description: string;
 	link: string;
+	icon?: string;
 	tags?: string[];
 };
 
 export const aiTools: AiTool[] = [
 	{
 		title: 'ChatGPT',
-		description: 'Versatile conversational assistant and code helper.',
+		description: 'General conversational assistant, excellent for prompts & coding. Free tier / ChatGPT Plus (paid).',
 		link: 'https://chat.openai.com',
-		tags: ['assistant', 'general']
+		icon: 'https://chat.openai.com/favicon.ico',
+		tags: ['chat', 'assistant', 'general', 'free', 'paid']
 	},
 	{
 		title: 'Claude',
-		description: 'Helpful writing and analysis copilot with strong reasoning.',
+		description: 'Good alternative for long-form reasoning and different safety tune. Free tier / Paid plans.',
 		link: 'https://claude.ai',
-		tags: ['writing', 'analysis']
-	},
-	{
-		title: 'Cursor',
-		description: 'AI-first code editor built on VS Code with inline assistance.',
-		link: 'https://cursor.com',
-		tags: ['coding', 'editor']
-	},
-	{
-		title: 'Suno',
-		description: 'AI music studio for generating full tracks, vocals and stems from text prompts.',
-		link: 'https://suno.com',
-		tags: ['music', 'audio']
-	},
-	{
-		title: 'Perplexity',
-		description: 'Answer engine with live sources and citations.',
-		link: 'https://www.perplexity.ai',
-		tags: ['search', 'research']
-	},
-	{
-		title: 'Midjourney',
-		description: 'High-quality text-to-image generation with stylized outputs.',
-		link: 'https://www.midjourney.com',
-		tags: ['images', 'creative']
-	},
-	{
-		title: 'GitHub Copilot',
-		description: 'Code generation assistant integrated directly into popular IDEs.',
-		link: 'https://github.com/features/copilot',
-		tags: ['coding', 'pair-programmer']
+		icon: 'https://claude.ai/favicon.ico',
+		tags: ['chat', 'assistant', 'reasoning', 'free', 'paid']
 	},
 	{
 		title: 'Gemini',
-		description: 'Google’s multimodal AI for reasoning, coding, and search.',
+		description: 'Strong multimodal model (good for images/code depending on plan). Free / Paid.',
 		link: 'https://gemini.google.com',
-		tags: ['assistant', 'multimodal']
+		icon: 'https://www.google.com/favicon.ico',
+		tags: ['chat', 'multimodal', 'assistant', 'free', 'paid']
+	},
+	{
+		title: 'Perplexity',
+		description: 'Browsing + citations - great for quick web-based answers. Free / Paid.',
+		link: 'https://www.perplexity.ai',
+		icon: 'https://www.perplexity.ai/favicon.ico',
+		tags: ['search', 'research', 'browsing', 'free', 'paid']
+	},
+	{
+		title: 'Cursor',
+		description: 'Code-focused IDE-assistant; good for dev workflows. Free / Paid.',
+		link: 'https://cursor.com',
+		icon: 'https://cursor.com/favicon.ico',
+		tags: ['code', 'ide', 'assistant', 'free', 'paid']
+	},
+	{
+		title: 'Suno',
+		description: 'TTS/music generation. Free / Paid.',
+		link: 'https://suno.com',
+		icon: 'https://suno.com/favicon.ico',
+		tags: ['tts', 'voice', 'music', 'audio', 'free', 'paid']
+	},
+	{
+		title: 'Midjourney',
+		description: 'High-quality text-to-image generation with stylized outputs. Paid.',
+		link: 'https://www.midjourney.com',
+		icon: 'https://www.midjourney.com/favicon.ico',
+		tags: ['image', 'generation', 'paid']
 	},
 	{
 		title: 'Stable Diffusion',
-		description: 'Open ecosystem for local and cloud-based image generation.',
+		description: 'Open ecosystem for local and cloud-based image generation. Free (self-hosted) / Paid.',
 		link: 'https://stability.ai',
-		tags: ['images', 'open-source']
+		icon: 'https://stability.ai/favicon.ico',
+		tags: ['image', 'generation', 'open-source', 'free', 'paid']
+	},
+	{
+		title: 'GitHub Copilot',
+		description: 'In-editor code completion; invaluable for dev productivity. Paid after trial.',
+		link: 'https://github.com/features/copilot',
+		icon: 'https://github.com/favicon.ico',
+		tags: ['code', 'completion', 'paid']
+	},
+	{
+		title: 'Google Antigravity',
+		description: 'Agent-first IDE (public preview). Powerful but requires care - agent automation can issue system-level commands. Power user tool.',
+		link: 'https://antigravity.google/',
+		icon: 'https://www.google.com/favicon.ico',
+		tags: ['agent', 'ide', 'code', 'preview', 'power-user']
 	}
 ];
-
