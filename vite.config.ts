@@ -9,3 +9,4 @@ export default defineConfig({
 	}
 });
 
+// TODO: Add a favicon
