@@ -19,8 +19,7 @@ export const projects: ProjectPick[] = [
 		title: 'Felle Studio',
 		description:
 			'Desktop app for downloading and organising videos and audio from TikTok, YouTube, Instagram and more, with a built-in simple editor.',
-		link: '/FelleStudio.zip',
-		file: '/FelleStudio.zip',
+		link: 'https://drive.google.com/file/d/1ninlWhZbIF44zwcv2MNXGhzGdjFQpBgT/view?usp=sharing',
 		tags: ['video', 'downloader', 'editor']
 	}
 ];
